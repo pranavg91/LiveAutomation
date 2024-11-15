@@ -10,7 +10,7 @@ public class TC_RF_003 {
 	
 	@Test
 
-	public void  verifyRegisterAccountUsingAllFields() {
+	public void verifyRegisterAccountUsingAllFields() {
 		// TODO Auto-generated method stub
 		
 		
