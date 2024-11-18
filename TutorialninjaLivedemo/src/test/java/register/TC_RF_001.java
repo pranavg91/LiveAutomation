@@ -1,6 +1,7 @@
 package register;
 
 import java.time.Duration;
+import utilies.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import utilies.CommonUtilies;
 
 public class TC_RF_001 {
 
@@ -27,10 +30,9 @@ public class TC_RF_001 {
 		driver.findElement(By.id("input-firstname")).sendKeys("pranav");
 		driver.findElement(By.name("lastname")).sendKeys("Gupta");
 
-		String randomEmail = "pranav.gupta" + System.currentTimeMillis() + "@gmail.com";
-		System.out.println(randomEmail);
-		WebElement email = driver.findElement(By.id("input-email"));
-		email.sendKeys(randomEmail);
+		
+		driver.findElement(By.id("input-email")).sendKeys(CommonUtilies.generateBrandNewEmail());
+	
 
 		driver.findElement(By.xpath("//input[@type ='tel']")).sendKeys("9988238918");
 		driver.findElement(By.id("input-password")).sendKeys("toto1111");
