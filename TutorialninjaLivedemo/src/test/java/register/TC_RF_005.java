@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import utilies.CommonUtilies;
+
 public class TC_RF_005 {
 	@Test
 	public void verifyRegisteringAccountBySubscribingToNewsletter() {
@@ -22,11 +24,11 @@ public class TC_RF_005 {
 		driver.findElement(By.id("input-firstname")).sendKeys("pranav");
 		driver.findElement(By.name("lastname")).sendKeys("Gupta");
 
-		String randomEmail = "toto.gupta" + System.currentTimeMillis() + "@gmail.com";
+		
 
-		WebElement email = driver.findElement(By.id("input-email"));
+		driver.findElement(By.id("input-email")).sendKeys(CommonUtilies.generateBrandNewEmail());
 
-		email.sendKeys(randomEmail);
+	
 
 		driver.findElement(By.xpath("//input[@type ='tel']")).sendKeys("9988238918");
 		driver.findElement(By.id("input-password")).sendKeys("toto1111");
