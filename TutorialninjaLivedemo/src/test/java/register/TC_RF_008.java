@@ -11,7 +11,7 @@ import utilies.*;
 public class TC_RF_008 {
 	
 	@Test
-	public void registeringAccountUsingDifferentPasswordInConfirmPasswordField() {
+	public void verifyRegisteringAccounByProvidingMismatchPassword() {
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -28,14 +28,18 @@ public class TC_RF_008 {
 		
 		driver.findElement(By.id("input-email")).sendKeys(CommonUtilies.generateBrandNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("90034999");
+		driver.findElement(By.id("input-password")).sendKeys("213132");
 		driver.findElement(By.id("input-confirm")).sendKeys("abcde");
+		
+		driver.findElement(By.xpath("//input[@name=\"newsletter\"][@value='1']")).click();
+		driver.findElement(By.xpath("//*[@name='agree'][@value='1']")).click();
+		
 		driver.findElement(By.xpath("//*[@value='Continue']")).click();
 		
+		String expectedWarningMessage ="Password confirmation does not match password!";
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@type='password']//following-sibling::div")).getText(),expectedWarningMessage);
 		
-		Assert.assertTrue(driver.findElement(By.xpath("//*[@type='password']//following-sibling::div")).isDisplayed());
-		String actualWarningMessage = driver.findElement(By.xpath("//*[@class='alert alert-danger alert-dismissible']")).getText();
-		String expectedWarningMessage ="Warning: You must agree to the Privacy Policy!";
-		Assert.assertEquals(actualWarningMessage, expectedWarningMessage);
+	
 		driver.quit();
 		
 	}

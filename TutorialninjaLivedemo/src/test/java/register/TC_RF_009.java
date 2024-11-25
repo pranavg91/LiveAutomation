@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class TC_RF_009 {
 	@Test
 	
-	public void verifyRegisteringAccountUsingExistingDetails() {
+	public void verifyRegisteringAccountUsingExistingEmailAddress() {
 		
 		
 		WebDriver driver = new ChromeDriver();
@@ -31,7 +31,6 @@ public class TC_RF_009 {
 		driver.findElement(By.xpath("//*[@value=\"Continue\"]")).click();
 		
 		String actualAlert = driver.findElement(By.xpath("//*[@class='alert alert-danger alert-dismissible']")).getText();
-		System.out.println(actualAlert);
 		String expectedAlert ="Warning: E-Mail Address is already registered!";
 		Assert.assertEquals(actualAlert, expectedAlert);
 		

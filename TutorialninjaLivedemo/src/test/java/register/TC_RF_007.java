@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC_RF_007 {
 @Test
-	public void differentWaysToNaviagteToRegsiterPage() {
+	public void verifyDifferentWaysOfNaviagtingToRegsiterAccountPage() {
 		
 		
 		
@@ -38,7 +38,7 @@ public class TC_RF_007 {
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//*[@class=\"breadcrumb\"]//a[text()='Register']")).isDisplayed());
 		
-		driver.findElement(By.xpath("//*[@class=\"list-group\"]//a[text()='Register']")).click();
+		driver.findElement(By.xpath("//*[@id=\"column-right\"]//a[text()=\"Register\"]")).click();
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//*[@class=\"breadcrumb\"]//a[text()='Register']")).isDisplayed());
 		

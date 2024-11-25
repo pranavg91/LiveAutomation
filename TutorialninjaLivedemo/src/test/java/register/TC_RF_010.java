@@ -24,9 +24,12 @@ public class TC_RF_010 {
 		driver.findElement(By.id("input-lastname")).sendKeys("motoori");
 		driver.findElement(By.id("input-telephone")).sendKeys("868989756");
 		driver.findElement(By.id("input-password")).sendKeys("34345");
-		driver.findElement(By.xpath("//*[@type='password'][@id='input-password']")).sendKeys("34345");
-		driver.findElement(By.xpath("//*[@name='agree'][@value='1']")).click();
+		driver.findElement(By.xpath("//*[@type='password'][@id='input-confirm']")).sendKeys("34345");
+		driver.findElement(By.xpath("//*[@name=\"newsletter\"][@value='1']")).click();
+		driver.findElement(By.xpath("//*[@type=\"checkbox\"][@value='1']")).click();
+		
 		driver.findElement(By.id("input-email")).sendKeys("motoori");
+		
 		driver.findElement(By.xpath("//*[@value='Continue']")).click();
 		Thread.sleep(3000);
 		
